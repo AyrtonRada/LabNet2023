@@ -30,7 +30,7 @@ namespace Practica1
                 string cant = Console.ReadLine();
                 while (!Int32.TryParse(cant, out entero))
                 {
-                    Console.WriteLine("Ingrese un número válido: ");
+                    Console.WriteLine("Ingrese un número entero: ");
                     cant = Console.ReadLine();
                 }
 
@@ -48,7 +48,7 @@ namespace Practica1
                 string cant = Console.ReadLine();
                 while (!Int32.TryParse(cant, out entero))
                 {
-                    Console.WriteLine("Ingrese un número válido: ");
+                    Console.WriteLine("Ingrese un número entero: ");
                     cant = Console.ReadLine();
                 }
                 transporte.Add(new TransporteTaxi(Int32.Parse(cant)));
@@ -62,14 +62,14 @@ namespace Practica1
 
             for (int i = 0; i <= transporte.Count -6; i++)
             {
-                Console.WriteLine($"Omnibus {i+1}: " + transporte[i].pasajeros);
+                Console.WriteLine($"Omnibus {i+1}: " + transporte[i].pasajeros + " pasajeros");
             }
 
             Console.WriteLine("\n");
             
             for (int i = 5; i < transporte.Count ; i++)
             {
-                Console.WriteLine($"Taxi {i-4}: " + transporte[i].pasajeros);
+                Console.WriteLine($"Taxi {i-4}: " + transporte[i].pasajeros + " pasajeros");
             }            
 
             Console.ReadKey();
