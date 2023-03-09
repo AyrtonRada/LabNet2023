@@ -11,7 +11,7 @@ namespace Practica2
     {
         static void Main(string[] args)
         {
-            Ejercicio1.Ejercicio1DividirCero();
+            Ejercicio2.Ejercicio2Division();
             Console.ReadKey();
         }
     }
