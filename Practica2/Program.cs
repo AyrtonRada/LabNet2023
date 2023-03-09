@@ -35,6 +35,17 @@ namespace Practica2
 
             Console.WriteLine("\n");
 
+            // Ejercicio 4
+            try
+            {
+                Console.WriteLine("Ejercicio 4.");
+                throw new Logic2.Ejercicio4CustomException();
+                
+            }
+            catch (Logic2.Ejercicio4CustomException ex)
+            {
+                Console.WriteLine(ex.Message + "\n" + "Tipo: " + ex.GetType().Name);
+            }
 
             Console.ReadKey();
         }
