@@ -130,6 +130,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica4.Entities\Practica4.Entities.csproj">
+      <Project>{9DECB2D2-B4A5-42E7-B60F-6AD7A8C7B57D}</Project>
+      <Name>Practica4.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Practica4.Logic\Practica4.Logic.csproj">
+      <Project>{FC7305C7-8E20-4E85-9F44-C688BA5FCFBF}</Project>
+      <Name>Practica4.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
