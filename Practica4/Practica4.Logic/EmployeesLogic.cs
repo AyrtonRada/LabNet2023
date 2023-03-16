@@ -14,5 +14,11 @@ namespace Practica4.Logic
         {
             return context.Employees.ToList();
         }
+
+        public void Add(Employees newEmployees)
+        {
+            context.Employees.Add(newEmployees);
+            context.SaveChanges();
+        }
     }
 }

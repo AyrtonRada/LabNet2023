@@ -20,7 +20,7 @@ namespace Practica4.IU
                 Console.WriteLine($"{employee.FirstName} - {employee.LastName}");
             }
 
-            Console.ReadKey();
+            Console.WriteLine("\n");
 
 
             // Mostrar la lista de clientes
@@ -31,7 +31,35 @@ namespace Practica4.IU
                 Console.WriteLine($"{customers.ContactName} - {customers.CompanyName}");
             }
 
+            Console.WriteLine("\n");
+
+
+            //Insertar nuevo empleado
+
+            try
+            {
+                Console.WriteLine("Ingrese el Nombre del empleado: ");
+                string nombre = Console.ReadLine();
+
+                Console.WriteLine("Ingrese el Apellido del empleado: ");
+                string apellido = Console.ReadLine();                  
+              
+                employeesLogic.Add(new Employees
+                {
+                    FirstName = nombre,
+                    LastName = apellido
+                });
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine("\n");
             Console.ReadKey();
+
+
         }
     }
 
