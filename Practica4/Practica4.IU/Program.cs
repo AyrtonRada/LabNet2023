@@ -17,7 +17,7 @@ namespace Practica4.IU
 
             foreach (Employees employee in employeesLogic.GetAll())
             {
-                Console.WriteLine($"{employee.FirstName} - {employee.LastName}");
+                Console.WriteLine($"{employee.EmployeeID} - {employee.FirstName} - {employee.LastName}");
             }
 
             Console.WriteLine("\n");
@@ -28,7 +28,7 @@ namespace Practica4.IU
 
             foreach (Customers customers in customersLogic.GetAll())
             {
-                Console.WriteLine($"{customers.ContactName} - {customers.CompanyName}");
+                Console.WriteLine($"{customers.CustomerID} - {customers.ContactName} - {customers.CompanyName}");
             }
 
             Console.WriteLine("\n");
@@ -51,15 +51,97 @@ namespace Practica4.IU
                 });
 
             }
+            catch(FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
             Console.WriteLine("\n");
+
+            
+            // Eliminar empleado
+
+            try
+            {
+                Console.WriteLine("Ingrese el ID del Empleado a Eliminar: ");
+                
+                int id = Int32.Parse(Console.ReadLine());
+
+                employeesLogic.Delete(id);
+
+                Console.WriteLine("Empleado eliminado con exito!");
+            }
+
+            catch (OverflowException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }       
+          
+
+            //Actualizando el nombre  y apellido de un empleado
+
+            try
+            {
+                Console.WriteLine("Ingrese el ID  del Empleado a Modificar: ");
+                int id = Int32.Parse(Console.ReadLine());
+
+                Console.WriteLine("Ingrese el Nombre del empleado: ");
+                string nombre = Console.ReadLine();
+
+                Console.WriteLine("Ingrese el Apellido del empleado: ");
+                string apellido = Console.ReadLine();
+
+                employeesLogic.Update(new Employees
+                {
+                    FirstName = nombre,
+                    LastName = apellido,
+                    EmployeeID = id
+                });
+
+                Console.WriteLine("Empleado Actualizado con Exito!");
+            }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             Console.ReadKey();
-
-
         }
     }
 

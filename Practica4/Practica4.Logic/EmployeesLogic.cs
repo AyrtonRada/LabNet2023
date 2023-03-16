@@ -20,5 +20,21 @@ namespace Practica4.Logic
             context.Employees.Add(newEmployees);
             context.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            var empleadoAEliminar = context.Employees.FirstOrDefault(e => e.EmployeeID == id);
+            context.Employees.Remove(empleadoAEliminar);
+            context.SaveChanges();
+                
+        }
+
+        public void Update(Employees employee)
+        {
+            var employeeUpdate = context.Employees.Find(employee.EmployeeID);
+            employeeUpdate.FirstName = employee.FirstName;
+            employeeUpdate.LastName = employee.LastName;
+            context.SaveChanges();
+        }
     }
 }
