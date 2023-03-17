@@ -26,7 +26,7 @@ namespace Practica5.Logic
                     Console.WriteLine($"ID: {cliente.ID} - EMPRESA: {cliente.EMPRESA} - NOMBRE CONTACTO: {cliente.NOMBRE}" );
                 }
 
-                Console.WriteLine("Presione un botón para pasar al Ejercicio 2");
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 2");
             }
 
             catch (InvalidOperationException ex)
@@ -37,7 +37,7 @@ namespace Practica5.Logic
 
         public void Ejercicio2()
         {
-            Console.WriteLine("Ejercicio 2");
+            Console.WriteLine("\nEjercicio 2");
             try
             {
                 var productos = context.Products.Where(x => x.UnitsInStock == 0).ToList();
@@ -47,7 +47,7 @@ namespace Practica5.Logic
                     Console.WriteLine($"ID: {producto.ProductID} - PRODUCTO: {producto.ProductName} - STOCK: {producto.UnitsInStock}");
                 }
 
-                Console.WriteLine("Presione un botón para pasar al Ejercicio 3");
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 3");
             }
             catch (InvalidOperationException ex)
             {
@@ -55,6 +55,25 @@ namespace Practica5.Logic
             }
         }
 
+        public void Ejercicio3()
+        {
+            Console.WriteLine("\nEjercicio 3");
+            try
+            {
+
+                var stocks = context.Products.Where(x => x.UnitsInStock > 0 && x.UnitPrice > 3).ToList();
+                foreach (var stock  in stocks)
+                {
+                    Console.WriteLine($"ID: {stock.ProductID} - PRODUCTO: {stock.ProductName} - PRECIO: {stock.UnitPrice}");
+                }
+
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 3");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
     }
 }

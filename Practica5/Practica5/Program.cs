@@ -12,13 +12,17 @@ namespace Practica5
         static void Main(string[] args)
         {
             LinqLogic linq1 = new LinqLogic();
-            
+
             //Ejercicio 1
-            linq1.Ejercicio1();                        
-            Console.ReadKey();
+            //linq1.Ejercicio1();                        
+            //Console.ReadKey();
 
             //Ejercicio 2
-            linq1.Ejercicio2();
+            //linq1.Ejercicio2();
+            //Console.ReadKey();
+
+            //Ejercicio 3
+            linq1.Ejercicio3();
             Console.ReadKey();
         }
     }
