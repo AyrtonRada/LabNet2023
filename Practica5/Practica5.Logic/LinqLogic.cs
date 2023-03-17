@@ -25,7 +25,7 @@ namespace Practica5.Logic
                                };
                 foreach (var cliente in clientes)
                 {
-                    Console.WriteLine($"ID: {cliente.ID} - EMPRESA: {cliente.EMPRESA} - NOMBRE CONTACTO: {cliente.NOMBRE}" );
+                    Console.WriteLine($"ID: {cliente.ID} - EMPRESA: {cliente.EMPRESA} - NOMBRE CONTACTO: {cliente.NOMBRE}");
                 }
 
                 Console.WriteLine("\nPresione un botón para pasar al Ejercicio 2");
@@ -60,7 +60,7 @@ namespace Practica5.Logic
         }
 
         //EJERCICIO 3
-        
+
         public void Ejercicio3()
         {
             Console.WriteLine("\nEjercicio 3\n");
@@ -68,7 +68,7 @@ namespace Practica5.Logic
             {
 
                 var stocks = context.Products.Where(x => x.UnitsInStock > 0 && x.UnitPrice > 3).ToList();
-                foreach (var stock  in stocks)
+                foreach (var stock in stocks)
                 {
                     Console.WriteLine($"ID: {stock.ProductID} - PRODUCTO: {stock.ProductName} - PRECIO: {stock.UnitPrice}");
                 }
@@ -110,8 +110,8 @@ namespace Practica5.Logic
             try
             {
                 var productosID = context.Products.FirstOrDefault(x => x.ProductID == 789);
-                
-                if(productosID == null)
+
+                if (productosID == null)
                 {
                     Console.WriteLine("No se encontró un Producto con el ID: 789");
                 }
@@ -121,6 +121,30 @@ namespace Practica5.Logic
                 }
 
                 Console.WriteLine("\nPresione un botón para pasar al Ejercicio 6");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        //EJERCICIO 6
+
+        public void Ejercicio6()
+        {
+            Console.WriteLine("\n Ejercicio 6\n");
+            try
+            {
+                var nombresClientes = from Customers in context.Customers select Customers.ContactName;
+                foreach (var nombre in nombresClientes)
+                {
+                    var mayus = nombre.ToUpper();
+                    var minus = nombre.ToLower();
+
+                    Console.WriteLine($"\n {mayus} - {minus}");
+                }
+
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 7");
             }
             catch (InvalidOperationException ex)
             {

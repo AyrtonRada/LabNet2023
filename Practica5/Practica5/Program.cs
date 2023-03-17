@@ -33,7 +33,11 @@ namespace Practica5
             //Console.ReadKey();
 
             //EJERCICIO 5
-            linq1.Ejercicio5();
+            //linq1.Ejercicio5();
+            //Console.ReadKey();
+
+            //EJERCICIO 6
+            linq1.Ejercicio6();
             Console.ReadKey();
         }
     }
