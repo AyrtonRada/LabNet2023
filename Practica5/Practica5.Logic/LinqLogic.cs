@@ -9,9 +9,11 @@ namespace Practica5.Logic
 {
     public class LinqLogic : BaseLogic
     {
+        // EJERCICIO 1
+
         public void Ejercicio1()
         {
-            Console.WriteLine("Ejercicio 1");
+            Console.WriteLine("Ejercicio 1\n");
             try
             {
                 var clientes = from Customers in context.Customers
@@ -35,9 +37,11 @@ namespace Practica5.Logic
             }
         }
 
+        //EJERCICIO 2
+
         public void Ejercicio2()
         {
-            Console.WriteLine("\nEjercicio 2");
+            Console.WriteLine("\nEjercicio 2\n");
             try
             {
                 var productos = context.Products.Where(x => x.UnitsInStock == 0).ToList();
@@ -55,9 +59,11 @@ namespace Practica5.Logic
             }
         }
 
+        //EJERCICIO 3
+        
         public void Ejercicio3()
         {
-            Console.WriteLine("\nEjercicio 3");
+            Console.WriteLine("\nEjercicio 3\n");
             try
             {
 
@@ -67,7 +73,28 @@ namespace Practica5.Logic
                     Console.WriteLine($"ID: {stock.ProductID} - PRODUCTO: {stock.ProductName} - PRECIO: {stock.UnitPrice}");
                 }
 
-                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 3");
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 4");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        //EJERCICIO 4
+
+        public void Ejercicio4()
+        {
+            Console.WriteLine("\nEjercicio 4\n");
+            try
+            {
+                var clientesWA = context.Customers.Where(x => x.Region == "WA").ToList();
+                foreach (var cliente in clientesWA)
+                {
+                    Console.WriteLine($"ID: {cliente.CustomerID} - NOMBRE: {cliente.ContactName} - REGION: {cliente.Region}");
+                }
+
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 5");
             }
             catch (InvalidOperationException ex)
             {
