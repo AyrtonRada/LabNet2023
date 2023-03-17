@@ -34,5 +34,27 @@ namespace Practica5.Logic
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void Ejercicio2()
+        {
+            Console.WriteLine("Ejercicio 2");
+            try
+            {
+                var productos = context.Products.Where(x => x.UnitsInStock == 0).ToList();
+
+                foreach (var producto in productos)
+                {
+                    Console.WriteLine($"ID: {producto.ProductID} - PRODUCTO: {producto.ProductName} - STOCK: {producto.UnitsInStock}");
+                }
+
+                Console.WriteLine("Presione un botón para pasar al Ejercicio 3");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
     }
 }
