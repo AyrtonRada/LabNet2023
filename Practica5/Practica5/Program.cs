@@ -29,7 +29,11 @@ namespace Practica5
             //Console.ReadKey();
 
             //EJERCICIO 4
-            linq1.Ejercicio4();
+            //linq1.Ejercicio4();
+            //Console.ReadKey();
+
+            //EJERCICIO 5
+            linq1.Ejercicio5();
             Console.ReadKey();
         }
     }

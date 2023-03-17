@@ -102,5 +102,30 @@ namespace Practica5.Logic
             }
         }
 
+        //EJERCICIO 5
+
+        public void Ejercicio5()
+        {
+            Console.WriteLine("\n Ejercicio 5\n");
+            try
+            {
+                var productosID = context.Products.FirstOrDefault(x => x.ProductID == 789);
+                
+                if(productosID == null)
+                {
+                    Console.WriteLine("No se encontró un Producto con el ID: 789");
+                }
+                else
+                {
+                    Console.WriteLine($"ID: {productosID.ProductID} - PRODUCTO: {productosID.ProductName} - STOCK: {productosID.UnitsInStock} - PRECIO: {productosID.UnitPrice}");
+                }
+
+                Console.WriteLine("\nPresione un botón para pasar al Ejercicio 6");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
