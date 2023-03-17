@@ -60,6 +60,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica5.Logic\Practica5.Logic.csproj">
+      <Project>{89AE3774-AFDA-4F63-843A-4CB893A9EFF9}</Project>
+      <Name>Practica5.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

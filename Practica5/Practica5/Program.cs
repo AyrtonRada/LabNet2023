@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica5.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,10 @@ namespace Practica5
     {
         static void Main(string[] args)
         {
+            LinqLogic linq1 = new LinqLogic();
+            linq1.Ejercicio1();
+                        
+            Console.ReadKey();
         }
     }
 }
