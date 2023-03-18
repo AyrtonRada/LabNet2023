@@ -151,5 +151,30 @@ namespace Practica5.Logic
                 Console.WriteLine(ex.Message);
             }
         }
+
+        //EJERCICIO 7
+
+        public void Ejercicio7()
+        {
+            Console.WriteLine("\n Ejercicio 7\n");
+            try
+            {
+                var joinCustOrds = (from customer in context.Customers
+                                    join order in context.Orders
+                                    on customer.CustomerID equals order.CustomerID
+                                    where customer.Region == "WA" && order.OrderDate > new DateTime(1997, 1, 1)
+                                    select order).ToList();
+
+                foreach (var join in joinCustOrds)
+                {
+                    Console.WriteLine($"ID : {join.CustomerID} - NOMBRE: {join.Customers.ContactName} - REGION: {join.Customers.Region} - FECHA: {join.OrderDate}");
+                }
+                Console.WriteLine("\nPresione un botón para Finalizar");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
