@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Adivina el Número</title>
 </head>
 <body>
-    
+    <header>
+        <button class="reset-button" type="button">Reiniciar!</button>
+        <h1 class="title">Adivinar el Número!<span class="between">(entre 1 y 20)</span></h1>
+        <div class="unknown">?</div>
+    </header>
+    <main>
+        <section>
+            <input class="entry" type="text">
+            <button class="try-button">Probar!</button>
+        </section>
+       
+        <section>
+            <span class="clue">Muy Alto!</span>
+            <div>
+                <p class="score">Score: <span class="score-value">19</span></p>
+                <p class="highscore">Highscore: <span class="highscore-value">0</span></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Juego hecho por Ayrton Rada 
+    </footer>
+    <script src="./Logic.js"></script>
 </body>
 </html>
