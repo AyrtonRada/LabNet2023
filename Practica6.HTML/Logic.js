@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
       entry.value = 0;
       clue.textContent = "Número Inválido, Por Favor Ingrese un Número Entero entre 1 y 20";
     } else if (score <= 0) {
-      clue.textContent = "Perdiste. Intentalo de Nuevo.";
+      clue.textContent = "Perdiste!";
       body.style.backgroundColor = 'red';
       tryButton.disabled = true;     
     } else {
@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
 
   function Comprobar() {
     if (entry.value == numero) {
-      clue.textContent = "Acertaste!";
+      clue.textContent = "Número Correcto";
       body.style.backgroundColor = 'rgba(36, 182, 46, 0.8)';
       tryButton.disabled = true;
       unknown.textContent = numero;
