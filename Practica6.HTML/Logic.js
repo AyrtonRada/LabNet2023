@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
   let scoreValue = document.querySelector(".score-value");
   let highscoreValue = document.querySelector(".highscore-value");
   let reinicio = document.querySelector(".reset-button");
+  let body = document.querySelector("body");
 
   /**
    * LOGICA
@@ -24,16 +25,17 @@ window.addEventListener("load", () => {
   
   let numRand = () => Math.floor(Math.random() * Math.floor(20)) + 1;
   let numero = numRand();
-  alert(numero);
-
+  
   //Main del juego
 
-  tryButton.addEventListener("click", () => {
+  tryButton.addEventListener("click", (e) => {
     if (entry.value == "" || entry.value == null || entry.value < 0 || entry.value > 20) {
       entry.value = 0;
       clue.textContent = "Número Inválido, Por Favor Ingrese un Número Entero entre 1 y 20";
     } else if (score <= 0) {
       clue.textContent = "Perdiste. Intentalo de Nuevo.";
+      body.style.backgroundColor = 'red';
+      tryButton.disabled = true;     
     } else {
       Comprobar();
     }
@@ -44,10 +46,12 @@ window.addEventListener("load", () => {
   function Comprobar() {
     if (entry.value == numero) {
       clue.textContent = "Acertaste!";
+      body.style.backgroundColor = 'rgba(36, 182, 46, 0.8)';
+      tryButton.disabled = true;
       unknown.textContent = numero;
       scoreValue.textContent = score;
       array.push(score);
-      highscore();
+      Highscore();
     } else if (entry.value > numero) {
       clue.textContent = "Muy Alto!";
       unknown.textContent = "?";
@@ -61,7 +65,7 @@ window.addEventListener("load", () => {
 
   //HighScore
 
-  function highscore() {
+  function Highscore() {
     for (let i = 0; i < array.length; i++) {
       if (cont < array[i]) {
         cont = array[i];
@@ -76,8 +80,10 @@ window.addEventListener("load", () => {
     numero = numRand();
     score = 20;
     scoreValue.textContent = 20;
-    clue.textContent = "Intentalo!";
+    clue.textContent = "Inténtalo!";
     entry.value = "";
     unknown.textContent = '?';
+    body.style.backgroundColor = '';
+    tryButton.disabled = false;  
   });
 });

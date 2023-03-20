@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/**Header**/
+
+body header{
+    height: 37.5vh;
+    border-bottom: 7px solid rgb(182, 182, 182);
+}
+.reset-button{
+    color: white;
+    background-color: red;
+    border-radius: 0.2em;
+    border-color: red;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    margin: 50px 0px 0px 50px;
+    cursor: pointer;
+}
+
+.title{
+    text-align: center;
+    margin: 35px 0px;
+}
+
+.between{
+    background-color: aqua;
+    border-radius: 90px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.unknown{
+    background: rgb(182, 182, 182);   
+    font-size: 2rem;
+    width: 5rem;
+    padding: 1.5rem 0rem;
+    text-align: center;
+    position: absolute;
+    left: 45%;
+    border-radius: 1em;  
+      
+}
+
+
+/**Main**/
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/**Eliminar las flechas del Input**/
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+/**Section 1**/
+
+.columna1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50rem;
+    margin-top: 150px;
+}
+
+.entry{
+    width: 35%;
+    padding: 15px;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 35px;
+    border-color: rgba(182, 182, 182, 0.4);
+}
+
+.try-button{
+    color: white;
+    background-color: green;
+    border-radius: 0.2em;
+    border-color: green;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    cursor: pointer;
+}
+
+/**Section 2 **/
+
+.columna2{    
+    width: 50rem;     
+    margin-top: 150px;
+    padding-bottom: 45px;
+    border-bottom: rgb(182, 182, 182) solid;
+}
+
+.clue{
+    font-size: 25px;
+    display: block;
+    border-bottom: rgb(182, 182, 182) solid;
+    padding-bottom: 35px;
+}
+
+.score, .highscore{
+    font-size: 25px;
+}
+
+.contenedor-score-highscore{
+    display: flex;
+    justify-content: space-between;        
+    width: 65%;
+    height: 15px;
+    margin-top: 45px;        
+}
+
+/**Footer**/
+
+.creator{
+    text-align: center;
+    padding-top: 60px;
+    color: rgb(182, 182, 182);;
+    
+}
