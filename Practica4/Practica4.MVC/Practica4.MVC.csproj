@@ -173,6 +173,16 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica4.Entities\Practica4.Entities.csproj">
+      <Project>{9DECB2D2-B4A5-42E7-B60F-6AD7A8C7B57D}</Project>
+      <Name>Practica4.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Practica4.Logic\Practica4.Logic.csproj">
+      <Project>{FC7305C7-8E20-4E85-9F44-C688BA5FCFBF}</Project>
+      <Name>Practica4.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

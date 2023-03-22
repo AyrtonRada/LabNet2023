@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica4.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,10 @@ namespace Practica4.MVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+
+            var logic = new EmployeesLogic();
+            List<Practica4.Entities.Employees> empleados = logic.GetAll();
+            return View(empleados);
         }
 
         public ActionResult About()
