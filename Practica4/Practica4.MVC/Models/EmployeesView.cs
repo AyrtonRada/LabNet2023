@@ -11,11 +11,11 @@ namespace Practica4.MVC.Models
         [Key]
         public int EmployeeID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The Last Name is Required")]
         [StringLength(20)]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The Name is Required")]
         [StringLength(10)]
         public string FirstName { get; set; }
     }

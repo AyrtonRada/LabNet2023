@@ -1,0 +1,17 @@
+﻿@model Practica4.MVC.Models.EmployeesView
+@{
+    ViewBag.Title = "Agregar Empleado";
+}
+
+<h1>Agregar Nuevo Empleado</h1>
+
+@using (Html.BeginForm("Insert", "Employees", FormMethod.Post))
+{
+    <label>Nombre: </label>
+    @Html.TextBoxFor(x => x.FirstName)
+    <br />
+    <label>Apellido: </label>
+    @Html.TextBoxFor(x => x.LastName)
+    <br />
+    <input type="submit" class="btn btn-success" value="Guardar" />
+}

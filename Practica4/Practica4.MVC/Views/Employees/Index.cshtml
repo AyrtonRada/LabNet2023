@@ -3,7 +3,7 @@
     ViewBag.Title = "Lista de Empleados";
 }
 
-<h1>Bienvenido a la Lista de Empleados</h1>
+<h1>Lista de Empleados</h1>
 
 <table class="table">
     <tr>
@@ -14,10 +14,10 @@
 
     @foreach (var empleado in Model)
     {
-    <tr>
-        <td>@empleado.EmployeeID</td>
-        <td>@empleado.FirstName</td>
-        <td>@empleado.LastName</td>
-    </tr>
+        <tr>
+            <td>@empleado.EmployeeID</td>
+            <td>@empleado.FirstName</td>
+            <td>@empleado.LastName</td>
+        </tr>
     }
 </table>
