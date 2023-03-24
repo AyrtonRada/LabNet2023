@@ -49,9 +49,23 @@ namespace Practica4.MVC.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Update()
+        public ActionResult Update(int id)
         {
-            return View();
+            try
+            {
+                Employees empleados = logic.GetOne(id);
+                EmployeesView employeesView = new EmployeesView
+                {
+                    EmployeeID = empleados.EmployeeID,
+                    FirstName = empleados.FirstName,
+                    LastName = empleados.LastName
+                };
+                return View(employeesView);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Error");
+            }            
         }
 
         [HttpPost]
@@ -59,14 +73,24 @@ namespace Practica4.MVC.Controllers
         {           
             try
             {
-                var empleadosUpdate = new Employees()
+                Employees Id = logic.GetOne(employeesView.EmployeeID);
+                
+                if (ModelState.IsValid && Id != null)
                 {
-                    EmployeeID = employeesView.EmployeeID,
-                    FirstName = employeesView.FirstName,
-                    LastName = employeesView.LastName
-                };
-                logic.Update(empleadosUpdate);
-                return RedirectToAction("Index");                 
+                    Employees empleadosUpdate = new Employees
+                    {
+                        EmployeeID = employeesView.EmployeeID,
+                        FirstName = employeesView.FirstName,
+                        LastName = employeesView.LastName
+                    };
+                    logic.Update(empleadosUpdate);
+                    return RedirectToAction("Index");
+
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch (Exception)
             {

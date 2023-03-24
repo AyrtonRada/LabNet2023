@@ -36,5 +36,10 @@ namespace Practica4.Logic
             employeeUpdate.LastName = employee.LastName;
             context.SaveChanges();
         }
+
+        public Employees GetOne(int id)
+        {
+            return context.Employees.First(x => x.EmployeeID.Equals(id));
+        }
     }
 }

@@ -10,14 +10,16 @@
         <td>ID</td>
         <td>NOMBRE</td>
         <td>APELLIDO</td>
+        <td>ACTUALIZAR</td>
     </tr>
 
     @foreach (var empleado in Model)
     {
-        <tr>
-            <td>@empleado.EmployeeID</td>
-            <td>@empleado.FirstName</td>
-            <td>@empleado.LastName</td>
-        </tr>
+    <tr>
+        <td>@empleado.EmployeeID</td>
+        <td>@empleado.FirstName</td>
+        <td>@empleado.LastName</td>
+        <td>@Html.ActionLink("Editar", "Update", new { id = empleado.EmployeeID })</td>
+    </tr>
     }
 </table>
