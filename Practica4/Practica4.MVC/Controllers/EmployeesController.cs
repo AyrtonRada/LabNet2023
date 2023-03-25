@@ -96,6 +96,20 @@ namespace Practica4.MVC.Controllers
             {
                 return RedirectToAction("index", "Error");
             }
-        }             
+        }   
+        
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                logic.Delete(id);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+        }
     }
 }

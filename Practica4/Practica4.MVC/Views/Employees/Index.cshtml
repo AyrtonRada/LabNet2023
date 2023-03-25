@@ -11,6 +11,7 @@
         <td>NOMBRE</td>
         <td>APELLIDO</td>
         <td>ACTUALIZAR</td>
+        <td>ELIMINAR</td>
     </tr>
 
     @foreach (var empleado in Model)
@@ -20,6 +21,7 @@
         <td>@empleado.FirstName</td>
         <td>@empleado.LastName</td>
         <td>@Html.ActionLink("Editar", "Update", new { id = empleado.EmployeeID })</td>
+        <td>@Html.ActionLink("Suprimir", "Delete", new { id = empleado.EmployeeID })</td>
     </tr>
     }
 </table>
