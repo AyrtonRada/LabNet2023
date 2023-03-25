@@ -11,12 +11,12 @@ namespace Practica4.MVC.Models
         [Key]
         public int EmployeeID { get; set; }
 
-        [Required(ErrorMessage = "The Last Name is Required")]
-        [StringLength(20)]
+        [Required(ErrorMessage = "*El Apellido es Obligatorio")]        
+        [StringLength(20, ErrorMessage = "*El límite es 20 carácteres")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "The Name is Required")]
-        [StringLength(10)]
+        [Required(ErrorMessage = "*El Nombre es Obligatorio")]        
+        [StringLength(10, ErrorMessage = "*El límite es 10 carácteres")]
         public string FirstName { get; set; }
     }
 }

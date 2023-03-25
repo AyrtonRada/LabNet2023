@@ -8,14 +8,19 @@
 
 @using (Html.BeginForm("Update", "Employees", FormMethod.Post))
 {
-    <label>ID: </label>
-    @Html.TextBoxFor(x => x.EmployeeID)
-    <br />
+    <div hidden>
+        <label>ID: </label>
+        @Html.TextBoxFor(x => x.EmployeeID)
+    </div>
     <label>NOMBRE: </label>
     @Html.TextBoxFor(x => x.FirstName)
     <br />
+    @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
+    <br />
     <label>APELLIDO: </label>
     @Html.TextBoxFor(x => x.LastName)
+    <br />
+    @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
     <br />
     <input type="submit" class="btn btn-success" value="Guardar" />
 }

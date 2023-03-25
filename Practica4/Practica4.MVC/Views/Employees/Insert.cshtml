@@ -7,11 +7,11 @@
 
 @using (Html.BeginForm("Insert", "Employees", FormMethod.Post))
 {
-    <label>Nombre: </label>
+    <label>NOMBRE: </label>
     @Html.TextBoxFor(x => x.FirstName)
-    <br />
-    <label>Apellido: </label>
+    <br />   
+    <label>APELLIDO: </label>
     @Html.TextBoxFor(x => x.LastName)
-    <br />
+    <br />    
     <input type="submit" class="btn btn-success" value="Guardar" />
 }
