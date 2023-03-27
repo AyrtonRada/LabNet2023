@@ -1,0 +1,28 @@
+﻿@model  List<Practica4.MVC.Models.RickYMortyApiView>
+
+@{
+    ViewBag.Title = "Rick y Morty Api";
+}
+
+<h1>Rick y Morty</h1>
+
+<table class="table">
+    <tr>        
+        <td>NOMBRE</td>
+        <td>ESTADO</td>
+        <td>ESPECIE</td>
+        <td>GENERO</td>
+    </tr>
+
+    @foreach (var api in Model)
+    {
+        <tr>
+            <td>@api.Name</td>
+            <td>@api.Status</td>
+            <td>@api.Status</td>
+            <td>@api.Gender</td>                
+        </tr>
+    }
+</table>
+
+
