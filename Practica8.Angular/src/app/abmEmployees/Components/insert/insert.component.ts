@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-insert',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertComponent implements OnInit {
 
-  constructor() { }
+  public formEmployees : FormGroup = this.fb.group({
+    nombre : [''],
+    apellido : ['']
+  });
+
+  constructor(private fb : FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  public enviarForm(){
+    console.log(this.formEmployees.value)
   }
 
 }

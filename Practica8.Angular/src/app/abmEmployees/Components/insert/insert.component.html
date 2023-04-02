@@ -1,1 +1,51 @@
-<p>insert works!</p>
+<h1>AGREGAR NUEVO EMPLEADO</h1>
+
+<form [formGroup]="formEmployees" (ngSubmit)="enviarForm()">
+
+  <!-- Inputs del formulario -->
+
+  <!-- INPUT NOMBRE -->
+  <div class="form-group">
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label for="name" class="col-form-label">NOMBRE</label>
+      </div>
+      <div class="col-auto">
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="nombre"
+        />
+      </div>
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text">
+          Must be 8-20 characters long.
+        </span>
+      </div>
+    </div>
+
+    <!-- INPUT APELLIDO -->
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label for="last-name" class="col-form-label">APELLIDO</label>
+      </div>
+      <div class="col-auto">
+        <input
+          type="text"
+          id="last-name"
+          class="form-control"
+          formControlName="apellido"
+        />
+      </div>
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text">
+          Must be 8-20 characters long.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- boton para enviar el contenido -->
+  <button type="submit" class="btn btn-success">GUARDAR</button>
+</form>
