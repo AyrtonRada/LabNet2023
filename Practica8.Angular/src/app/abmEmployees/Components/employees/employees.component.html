@@ -4,8 +4,8 @@
 
   <nav class="navbar bg-body-tertiary">
     <form class="container-fluid justify-content-start">
-      <button class="btn btn-outline-primary me-2" type="button">LISTA COMPLETA</button>
-      <button class="btn btn-sm btn-outline-secondary" type="button">AGREGAR NUEVO EMPLEADO</button>
+
+      <button class="btn btn-sm btn-outline-primary" type="button" (click)="goToInsert()" >AGREGAR NUEVO EMPLEADO</button>
     </form>
   </nav>
 
@@ -18,7 +18,7 @@
         <th scope="col">APELLIDO</th>
         <th scope="col">ACTUALIZAR</th>
         <th scope="col">SUPRIMIR</th>
-        <button type="button" class="btn btn-info" >EDITAR</button>
+        <button type="button" class="btn btn-info" (click)="goToUpdate()">EDITAR</button>
         <button type="button" class="btn btn-danger">ELIMINAR</button>
       </tr>
     </thead>
@@ -28,4 +28,4 @@
       </tr>
     </tbody>
   </table>
-<app-insert></app-insert>
+

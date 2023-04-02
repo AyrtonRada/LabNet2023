@@ -1,6 +1,6 @@
-<h1>AGREGAR NUEVO EMPLEADO</h1>
+<h1>ACTUALIZAR DATOS DEL EMPLEADO</h1>
 <button class="btn btn-outline-primary me-2" type="button" (click)="goToIndex()" >LISTA COMPLETA</button>
-<form [formGroup]="formEmployees" (ngSubmit)="enviarForm()">
+<form [formGroup]="formUpdateEmployees" (ngSubmit)="enviarForm()">
 
   <!-- Inputs del formulario -->
 
@@ -17,14 +17,13 @@
           class="form-control"
           formControlName="nombre"
           oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '').replace(/(\.*)\./g, '$1');"
-          placeholder="Ingrese Nombre"
         />
       </div>
       <div class="col-auto">
-        <span *ngIf="formEmployees.get('nombre')?.errors?.['required']" id="name-required" class="alert alert-danger">
+        <span *ngIf="formUpdateEmployees.get('nombre')?.errors?.['required']" id="name-required" class="alert alert-danger">
           *el campo es Obligatorio
         </span>
-        <span *ngIf="formEmployees.get('nombre')?.errors?.['maxlength']" id="name-maxlength" class="alert alert-danger">
+        <span *ngIf="formUpdateEmployees.get('nombre')?.errors?.['maxlength']" id="name-maxlength" class="alert alert-danger">
           *máximo 10 carácteres
         </span>
       </div>
@@ -42,14 +41,13 @@
           class="form-control"
           formControlName="apellido"
           oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '').replace(/(\.*)\./g, '$1');"
-          placeholder="Ingrese Apellido"
         />
       </div>
       <div class="col-auto">
-        <span *ngIf="formEmployees.get('apellido')?.errors?.['required']" id="apellido-validator" class="alert alert-danger">
+        <span *ngIf="formUpdateEmployees.get('apellido')?.errors?.['required']" id="apellido-validator" class="alert alert-danger">
           *el campo es Obligatorio
         </span>
-        <span *ngIf="formEmployees.get('apellido')?.errors?.['maxlength']" id="apellido-maxlength" class="alert alert-danger">
+        <span *ngIf="formUpdateEmployees.get('apellido')?.errors?.['maxlength']" id="apellido-maxlength" class="alert alert-danger">
           *máximo 20 carácteres
         </span>
       </div>
@@ -57,5 +55,5 @@
   </div>
 
   <!-- boton para enviar el contenido -->
-  <button type="submit" class="btn btn-success" [disabled]="formEmployees.invalid">GUARDAR</button>
+  <button type="submit" class="btn btn-success" [disabled]="formUpdateEmployees.invalid">GUARDAR</button>
 </form>
