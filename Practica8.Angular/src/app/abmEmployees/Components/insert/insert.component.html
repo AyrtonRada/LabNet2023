@@ -16,11 +16,15 @@
           id="name"
           class="form-control"
           formControlName="nombre"
+          oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '').replace(/(\.*)\./g, '$1');"
         />
       </div>
       <div class="col-auto">
-        <span id="passwordHelpInline" class="form-text">
-          Must be 8-20 characters long.
+        <span *ngIf="formEmployees.get('nombre')?.errors?.['required']" id="name-required" class="alert alert-danger">
+          *el campo es Obligatorio
+        </span>
+        <span *ngIf="formEmployees.get('nombre')?.errors?.['maxlength']" id="name-maxlength" class="alert alert-danger">
+          *máximo 10 carácteres
         </span>
       </div>
     </div>
@@ -36,11 +40,15 @@
           id="last-name"
           class="form-control"
           formControlName="apellido"
+          oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '').replace(/(\.*)\./g, '$1');"
         />
       </div>
       <div class="col-auto">
-        <span id="passwordHelpInline" class="form-text">
-          Must be 8-20 characters long.
+        <span *ngIf="formEmployees.get('apellido')?.errors?.['required']" id="apellido-validator" class="alert alert-danger">
+          *el campo es Obligatorio
+        </span>
+        <span *ngIf="formEmployees.get('apellido')?.errors?.['maxlength']" id="apellido-maxlength" class="alert alert-danger">
+          *máximo 20 carácteres
         </span>
       </div>
     </div>

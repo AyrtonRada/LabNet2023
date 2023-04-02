@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-insert',
@@ -9,8 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class InsertComponent implements OnInit {
 
   public formEmployees : FormGroup = this.fb.group({
-    nombre : [''],
-    apellido : ['']
+    nombre : ['', [Validators.maxLength(10), Validators.required]],
+    apellido : ['', [Validators.maxLength(20), Validators.required]]
   });
 
   constructor(private fb : FormBuilder) { }
@@ -19,7 +19,7 @@ export class InsertComponent implements OnInit {
   }
 
   public enviarForm(){
-    console.log(this.formEmployees.value)
+
   }
 
 }
