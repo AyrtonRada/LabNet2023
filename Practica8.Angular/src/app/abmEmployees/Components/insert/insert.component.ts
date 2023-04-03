@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeModel } from '../../Models/EmployeeModel';
 import { EmployeesService } from '../../Services/employees.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insert',
@@ -32,7 +33,7 @@ export class InsertComponent implements OnInit {
       employee.LastName = this.formEmployees.get('apellido')?.value;
       this.employeesService.insertEmployee(employee).subscribe((res) => {
         this.formEmployees.reset();
-        alert('Creado con Éxito!');
+        this.showAlert();
         this.router.navigate(['/']);
       });
     } catch (error) {
@@ -43,4 +44,15 @@ export class InsertComponent implements OnInit {
   goToIndex() {
     this.router.navigate(['/']);
   }
+
+  //alerta de confirmacion
+  showAlert(){
+    Swal.fire({
+      title: 'Empleado Creado con Éxito!',
+      icon: 'success',
+      position: 'center'
+    });
+  }
+
+
 }

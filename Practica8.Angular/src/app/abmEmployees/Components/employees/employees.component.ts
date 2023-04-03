@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeModel } from '../../Models/EmployeeModel';
 import { EmployeesService } from '../../Services/employees.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-employees',
@@ -29,9 +31,9 @@ export class EmployeesComponent implements OnInit {
 
   eraseEmployee(id: number) {
     try {
-      this.employeesService.deleteEmployee(id).subscribe((res) => {
-        location.reload();
-      });
+       {
+        this.swalWithBootstrapButtons(id);
+      };
     } catch (error) {
       console.log(error);
     }
@@ -45,4 +47,47 @@ export class EmployeesComponent implements OnInit {
   goToUpdate(id: number) {
     this.router.navigate(['update', id]);
   }
+
+  //alerta de confirmacion
+  swalWithBootstrapButtons(id : number): void {
+    const swal = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    });
+
+    swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esto',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.employeesService.deleteEmployee(id).subscribe((res) =>{
+
+          swal.fire(
+            '¡Borrado!',
+            'Empleado eliminado.'
+          );
+          setTimeout(()=>{
+            location.reload();
+        }, 2000);
+
+        })
+      }else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swal.fire(
+          'Eliminación Cancelada'
+        )
+      }
+    });
+  }
+
 }

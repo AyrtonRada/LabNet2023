@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import {  FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { EmployeeModel } from '../../Models/EmployeeModel';
 import { EmployeesService } from '../../Services/employees.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update',
@@ -61,7 +56,7 @@ export class UpdateComponent implements OnInit {
       this.employeesService
         .updateEmployee(dataEmployees, employeeId)
         .subscribe(() => {
-          alert('Actualizado con Éxito!');
+          this.showAlert();
           this.router.navigate(['/']);
         });
     } catch (error) {
@@ -72,5 +67,14 @@ export class UpdateComponent implements OnInit {
   //rediccion al home
   goToIndex() {
     this.router.navigate(['/']);
+  }
+
+  //alerta de confirmacion
+  showAlert(){
+    Swal.fire({
+      title: 'Empleado Actualizado con Éxito!',
+      icon: 'success',
+      position: 'center'
+    });
   }
 }
