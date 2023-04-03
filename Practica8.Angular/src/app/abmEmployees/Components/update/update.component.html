@@ -1,6 +1,6 @@
 <h1>ACTUALIZAR DATOS DEL EMPLEADO</h1>
 <button class="btn btn-outline-primary me-2" type="button" (click)="goToIndex()" >LISTA COMPLETA</button>
-<form [formGroup]="formUpdateEmployees" (ngSubmit)="enviarForm()">
+<form [formGroup]="formUpdateEmployees" (ngSubmit)="replaceEmployee()">
 
   <!-- Inputs del formulario -->
 
@@ -55,5 +55,5 @@
   </div>
 
   <!-- boton para enviar el contenido -->
-  <button type="submit" class="btn btn-success" [disabled]="formUpdateEmployees.invalid">GUARDAR</button>
+  <button type="submit" class="btn btn-success" [disabled]="formUpdateEmployees.invalid" >GUARDAR</button>
 </form>

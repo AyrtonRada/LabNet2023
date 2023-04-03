@@ -24,13 +24,32 @@ export class EmployeesComponent implements OnInit {
     }
   }
 
+  //actualizar un empleado
+
+  getEmployeeById( id: number){
+    let currentEmployee = this.employeeList.find( x => { return x.EmployeeID === id})
+    console.log(currentEmployee)
+  }
+
+  //Eliminar un empleado
+
+  eraseEmployee( id : number){
+    try {
+      this.employeesService.deleteEmployee(id).subscribe( res => {
+        location.reload();
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   // navegar entre componentes
   goToInsert() {
     this.router.navigate(['/insert']);
   }
 
-  goToUpdate() {
-    this.router.navigate(['/update']);
+  goToUpdate(id : number) {
+    this.router.navigate(['/update'+ '/' + id]);
   }
 
 

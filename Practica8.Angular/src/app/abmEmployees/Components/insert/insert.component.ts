@@ -31,7 +31,7 @@ export class InsertComponent implements OnInit {
       employee.LastName= this.formEmployees.get('apellido')?.value;
       this.employeesService.insertEmployee(employee).subscribe(res => {
         this.formEmployees.reset();
-        console.log("Creado con Éxito!");
+        alert("Creado con Éxito!");
       })
     } catch (error) {
       console.log(error)

@@ -24,8 +24,8 @@
       <tr *ngFor="let employee of employeeList">
         <td>{{employee.FirstName}}</td>
         <td>{{employee.LastName}}</td>
-        <td><button type="button" class="btn btn-info" (click)="goToUpdate()">EDITAR</button></td>
-        <td><button type="button" class="btn btn-danger">ELIMINAR</button></td>
+        <td><button type="button" class="btn btn-info" (click)="goToUpdate(employee.EmployeeID)">EDITAR</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="eraseEmployee(employee.EmployeeID)">ELIMINAR</button></td>
       </tr>
     </tbody>
   </table>
