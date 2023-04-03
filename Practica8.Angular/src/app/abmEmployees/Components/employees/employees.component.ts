@@ -16,7 +16,6 @@ export class EmployeesComponent implements OnInit {
 
     //obtener lista de empleados
     try {
-
       this.employeesService.listEmployee().subscribe( res => {
         this.employeeList = res;
       })

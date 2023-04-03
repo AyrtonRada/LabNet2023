@@ -57,5 +57,5 @@
   </div>
 
   <!-- boton para enviar el contenido -->
-  <button type="submit" class="btn btn-success" [disabled]="formEmployees.invalid">GUARDAR</button>
+  <button type="submit" class="btn btn-success" [disabled]="formEmployees.invalid" (click)="saveEmployee()">GUARDAR</button>
 </form>

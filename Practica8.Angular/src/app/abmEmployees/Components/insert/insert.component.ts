@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EmployeeModel } from '../../Models/EmployeeModel';
+import { EmployeesService } from '../../Services/employees.service';
 
 @Component({
   selector: 'app-insert',
@@ -13,9 +15,29 @@ export class InsertComponent implements OnInit {
     apellido: ['', [Validators.maxLength(20), Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private employeesService : EmployeesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
+
+  saveEmployee(){
+    //agregar un empleado
+
+    try {
+
+      var employee = new EmployeeModel();
+      employee.FirstName = this.formEmployees.get('nombre')?.value;
+      employee.LastName= this.formEmployees.get('apellido')?.value;
+      this.employeesService.insertEmployee(employee).subscribe(res => {
+        this.formEmployees.reset();
+        console.log("Creado con Éxito!");
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   public enviarForm() {}
 

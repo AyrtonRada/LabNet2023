@@ -18,4 +18,9 @@ export class EmployeesService {
   listEmployee() : Observable<EmployeeModel[]>{
     return this.http.get<EmployeeModel[]>(environment.api + this.endpoint);
   }
+
+  public insertEmployee( request : EmployeeModel) : Observable<any>{
+    let url = environment.api + this.endpoint;
+    return this.http.post(url, request);
+  }
 }
