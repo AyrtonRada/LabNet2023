@@ -18,13 +18,14 @@
         <th scope="col">APELLIDO</th>
         <th scope="col">ACTUALIZAR</th>
         <th scope="col">SUPRIMIR</th>
-        <button type="button" class="btn btn-info" (click)="goToUpdate()">EDITAR</button>
-        <button type="button" class="btn btn-danger">ELIMINAR</button>
       </tr>
     </thead>
     <tbody>
-      <tr class="table-active">
-        ...
+      <tr *ngFor="let employee of employeeList">
+        <td>{{employee.FirstName}}</td>
+        <td>{{employee.LastName}}</td>
+        <td><button type="button" class="btn btn-info" (click)="goToUpdate()">EDITAR</button></td>
+        <td><button type="button" class="btn btn-danger">ELIMINAR</button></td>
       </tr>
     </tbody>
   </table>

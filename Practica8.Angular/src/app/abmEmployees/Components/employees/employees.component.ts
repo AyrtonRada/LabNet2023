@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EmployeeModel } from '../../Models/EmployeeModel';
+import { EmployeesService } from '../../Services/employees.service';
 
 @Component({
   selector: 'app-employees',
@@ -8,12 +10,22 @@ import { Router } from '@angular/router';
 })
 export class EmployeesComponent implements OnInit {
 
-
-  constructor(private router : Router) { }
-
+  public employeeList : EmployeeModel[] = [];
+  constructor(private router : Router, private employeesService : EmployeesService) { }
   ngOnInit(): void {
+
+    //obtener lista de empleados
+    try {
+
+      this.employeesService.listEmployee().subscribe( res => {
+        this.employeeList = res;
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
+  // navegar entre componentes
   goToInsert() {
     this.router.navigate(['/insert']);
   }
@@ -21,4 +33,6 @@ export class EmployeesComponent implements OnInit {
   goToUpdate() {
     this.router.navigate(['/update']);
   }
+
+
 }

@@ -4,6 +4,7 @@ import { EmployeesComponent } from './Components/employees/employees.component';
 import { InsertComponent } from './Components/insert/insert.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateComponent } from './Components/update/update.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,7 +16,8 @@ import { UpdateComponent } from './Components/update/update.component';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AbmEmployeesModule { }
