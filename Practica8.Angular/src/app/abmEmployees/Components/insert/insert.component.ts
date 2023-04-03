@@ -15,32 +15,30 @@ export class InsertComponent implements OnInit {
     apellido: ['', [Validators.maxLength(20), Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private router: Router, private employeesService : EmployeesService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private employeesService: EmployeesService
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  saveEmployee(){
+  saveEmployee() {
     //agregar un empleado
 
     try {
-
       var employee = new EmployeeModel();
       employee.FirstName = this.formEmployees.get('nombre')?.value;
-      employee.LastName= this.formEmployees.get('apellido')?.value;
-      this.employeesService.insertEmployee(employee).subscribe(res => {
+      employee.LastName = this.formEmployees.get('apellido')?.value;
+      this.employeesService.insertEmployee(employee).subscribe((res) => {
         this.formEmployees.reset();
-        alert("Creado con Éxito!");
+        alert('Creado con Éxito!');
         this.router.navigate(['/']);
-      })
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
   }
-
-  public enviarForm() {}
 
   goToIndex() {
     this.router.navigate(['/']);
