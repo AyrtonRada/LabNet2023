@@ -26,10 +26,7 @@ export class EmployeesComponent implements OnInit {
 
   //actualizar un empleado
 
-  getEmployeeById( id: number){
-    let currentEmployee = this.employeeList.find( x => { return x.EmployeeID === id})
-    console.log(currentEmployee)
-  }
+
 
   //Eliminar un empleado
 
@@ -49,7 +46,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   goToUpdate(id : number) {
-    this.router.navigate(['/update'+ '/' + id]);
+    this.router.navigate(['update', id]);
   }
 
 

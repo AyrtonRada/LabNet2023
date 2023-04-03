@@ -29,11 +29,11 @@ export class EmployeesService {
     return this.http.delete<EmployeeModel>(this.url + '/' + id);
   }
 
-  getEmployeeById(id : number) : Observable<any>{
-    return this.http.get(this.url + '/' + id);
+  getEmployeeById(id: any) : Observable<EmployeeModel>{
+    return this.http.get<EmployeeModel>(this.url + '/' + id);
   }
 
-  updateEmployee(request : EmployeeModel, id : number) : Observable<any>{
+  updateEmployee(request : EmployeeModel, id :any) : Observable<any>{
     return this.http.put(this.url + '/' + id, request);
   }
 }

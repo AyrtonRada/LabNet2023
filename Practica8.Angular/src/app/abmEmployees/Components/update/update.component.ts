@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeModel } from '../../Models/EmployeeModel';
@@ -13,12 +13,6 @@ import { EmployeesService } from '../../Services/employees.service';
 export class UpdateComponent implements OnInit {
 
 
-
-  public formUpdateEmployees : FormGroup = this.fb.group({
-    nombre : ['', [Validators.maxLength(10), Validators.required]],
-    apellido : ['', [Validators.maxLength(20), Validators.required]]
-  });
-
   constructor(private fb : FormBuilder,
      private router: Router,
       private employeesService : EmployeesService,
@@ -26,14 +20,31 @@ export class UpdateComponent implements OnInit {
       private formBuilder: FormBuilder,
    ) { }
 
+   employee! : EmployeeModel;
+   formUpdateEmployees! : FormGroup;
+   id: any = 0;
+
+
   ngOnInit(): void {
 
-     this.employeesService.getEmployeeById(this.route.snapshot.params['id']).subscribe( res => {
+    this.formUpdateEmployees  = this.fb.group({
+      id :[''],
+      nombre : ['', [Validators.maxLength(10), Validators.required]],
+      apellido : ['', [Validators.maxLength(20), Validators.required]]
+    });
 
-      this.formUpdateEmployees.get('nombre')?.setValue(res.FirstName);
-      this.formUpdateEmployees.get('apellido')?.setValue(res.LastName);
+    let employeeId = this.route.snapshot.paramMap.get('id');
+    this.employeesService.getEmployeeById(employeeId).subscribe( res => {
+      this.employee = res;
+      console.log(res)
+      this.id = employeeId
 
+      var data = this.employee;
+      this.formUpdateEmployees.get('id')?.setValue(data.EmployeeID);
+      this.formUpdateEmployees.get('nombre')?.setValue(data.FirstName);
+      this.formUpdateEmployees.get('apellido')?.setValue(data.LastName);
     })
+
   }
 
   //Actualizar un empleado
@@ -41,9 +52,14 @@ export class UpdateComponent implements OnInit {
   replaceEmployee(){
     try {
 
-      this.employeesService.updateEmployee(this.formUpdateEmployees.value, this.route.snapshot.params['id']).subscribe( res => {
-
-        alert('Actualizado con Éxito!')
+      let dataEmployees = new EmployeeModel();
+      dataEmployees.EmployeeID = this.id;
+      dataEmployees.FirstName = this.formUpdateEmployees.get('nombre')?.value;
+      dataEmployees.LastName = this.formUpdateEmployees.get('apellido')?.value;
+      console.log(this.id)
+      let employeeId = this.route.snapshot.paramMap.get('id');
+      this.employeesService.updateEmployee(dataEmployees, employeeId).subscribe( res=>{
+        alert('Actualizado con Éxito!');
         this.router.navigate(['/']);
       })
 
@@ -51,11 +67,6 @@ export class UpdateComponent implements OnInit {
       console.log(error)
     }
 
-  }
-
-  //submit
-  public enviarForm(){
-    console.log(this.formUpdateEmployees.value)
   }
 
   //rediccion al home

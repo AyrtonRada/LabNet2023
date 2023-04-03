@@ -32,6 +32,7 @@ export class InsertComponent implements OnInit {
       this.employeesService.insertEmployee(employee).subscribe(res => {
         this.formEmployees.reset();
         alert("Creado con Éxito!");
+        this.router.navigate(['/']);
       })
     } catch (error) {
       console.log(error)

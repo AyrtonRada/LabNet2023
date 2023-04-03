@@ -7,10 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Practica4.Controllers
 {
-    
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/employees")]
     public class EmployeesController : ApiController
     {
@@ -80,8 +81,8 @@ namespace Practica4.Controllers
             }
         }
 
-        [HttpPut]
         // PUT api/employees/5
+        [HttpPut]
         public IHttpActionResult Put(int id, [FromBody] EmployeesViewApi employeesView)
         {
             try
